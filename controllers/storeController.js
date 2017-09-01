@@ -22,6 +22,8 @@ exports.getStores = async (req, res) => {
 }
 
 exports.editStore = async (req, res) => {
+  // set the location data to be a point
+  req.body.location.type = 'Point';
   //  find the store given the id
   const store = await Store.findOne({ _id: req.params.id});
   // render out the edit form
